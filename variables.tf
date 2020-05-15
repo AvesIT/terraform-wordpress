@@ -10,6 +10,12 @@ variable "namespace" {
   default = "example_namespace"
 }
 
+variable "chart_version" {
+  type = string
+  description = "Chart version"
+  default = ""
+}
+
 variable "wp_version" {
   type = string
   description = "Version of WordPress to run (image tag)"

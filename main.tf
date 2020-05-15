@@ -3,7 +3,7 @@ resource "helm_release" "wp-install" {
   repository = data.helm_repository.bitnami.metadata.0.name
   chart = "wordpress"
   namespace = var.namespace
-  version = var.wp_version
+  version = var.chart_version 
   
   set {
     name = "image.tag"
