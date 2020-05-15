@@ -27,7 +27,7 @@ resource "helm_release" "wp-install" {
   }
   set {
     name = "persistence.storageClass"
-    value = "nfs"
+    value = var.storage_class
   }
   set {
     name = "persistence.size"

@@ -16,6 +16,7 @@ See `examples/example.tf` for example usage of the module.
 | wp_version | Version of wordpress to deploy | string | `latest` | no |
 | main_url | URL to expose via an ingress | string | `example.org` | no |
 | storage_size | Size for permanent storage | string | `2Gi` | no |
+| storage_class | Storage Class used for above storage | string | `nfs` | no
 
 ## Outputs
 

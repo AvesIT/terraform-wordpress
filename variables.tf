@@ -28,3 +28,8 @@ variable "storage_size" {
   default = "2Gi"
 }
 
+variable "storage_class" {
+  type = string
+  description = "Kubernetes Storage class used for permanent storage"
+  default = "nfs"
+}
