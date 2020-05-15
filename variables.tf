@@ -1,12 +1,12 @@
-variable "customer_name" {
+variable "name" {
   type = string
-  description = "Customer name"
+  description = "Deployment name"
   default = "example"
 }
 
-variable "customer_namespace" {
+variable "namespace" {
   type = string
-  description = "Customer namespace"
+  description = "Deployment namespace"
   default = "example_namespace"
 }
 
