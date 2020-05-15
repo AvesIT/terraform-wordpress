@@ -57,3 +57,9 @@ variable "db_connect_range" {
   description = "IP address (in MySQL format) that connections are tolerated from. For instance, a node ip range, service range or pod range"
   default = "10.42.%"
 }
+
+variable "cluster_issuer" {
+  type =  string
+  description = "Certmanager cluster-issuer for this ingress"
+  default = "letsencrypt-staging"
+}

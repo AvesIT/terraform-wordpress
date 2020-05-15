@@ -26,6 +26,14 @@ resource "helm_release" "wp-install" {
     value = var.main_url
   }
   set {
+    name = "ingress.certManager"
+    value = "true"
+  }
+  set {
+    name = "ingress.annotations.certmanager\\.k8s\\,io\\\cluster-issuer"
+    value = var.cluster-issuer
+  }
+  set {
     name = "persistence.storageClass"
     value = var.storage_class
   }
