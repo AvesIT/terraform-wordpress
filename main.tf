@@ -34,6 +34,10 @@ resource "helm_release" "wp-install" {
     value = var.cluster_issuer
   }
   set {
+    name = "ingress.tls"
+    value = "true"
+  }
+  set {
     name = "persistence.storageClass"
     value = var.storage_class
   }
