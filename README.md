@@ -9,12 +9,6 @@ See `examples/example.tf` for example usage of the module.
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Inputs
 
-  customer_name = "starmans" 
-  customer_namespace = kubernetes_namespace.web.metadata.0.name
-  wp_version = "5.4.1"
-  main_url = "www.starmans.pro"
-  storage_size = "2Gi"
-
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | customer\_name | Name of customer | string | `example` | no |
