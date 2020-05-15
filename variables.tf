@@ -33,3 +33,21 @@ variable "storage_class" {
   description = "Kubernetes Storage class used for permanent storage"
   default = "nfs"
 }
+
+variable "storage_mode" {
+  type = string
+  description = "Mount mode for storage"
+  default = "ReadWriteMany"
+}
+
+variable "db_uri" {
+  type = string
+  description = "Hostname:port to connect to underlying database"
+  default = "mariadb"
+}
+
+variable "db_connect_range" {
+  type = string
+  description = "IP address (in MySQL format) that connections are tolerated from. For instance, a node ip range, service range or pod range"
+  default = "10.42.%"
+}

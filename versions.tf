@@ -5,6 +5,7 @@ terraform {
     mysql      = "~> 1.9"
     kubernetes = "~> 1.10"
     random     = "~> 2.2"
+    helm       = "~> 1.1"
   }
 
 }

@@ -11,12 +11,15 @@ See `examples/example.tf` for example usage of the module.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| customer\_name | Name of customer | string | `example` | no |
-| customer\_namespace | Namespace to put this in | string | `example` | no |
+| name | Name of customer | string | `example` | no |
+| namespace | Namespace to put this in | string | `example` | no |
 | wp_version | Version of wordpress to deploy | string | `latest` | no |
 | main_url | URL to expose via an ingress | string | `example.org` | no |
 | storage_size | Size for permanent storage | string | `2Gi` | no |
 | storage_class | Storage Class used for above storage | string | `nfs` | no
+| storage_mode | Mount mode for above storage | string | `ReadWriteMany` | no
+| db_uri | Connect string for database | string | `mariadb` | no
+| db_connect_range | Allowed IP range of pods | string | `10.42.%` | no
 
 ## Outputs
 

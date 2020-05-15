@@ -1,13 +1,13 @@
 resource "helm_release" "wp-install" {
-  name = "wp-${var.customer_name}"
+  name = "wp-${var.name}"
   repository = data.helm_repository.bitnami.metadata.0.name
   chart = "wordpress"
-  namespace = var.customer_namespace
+  namespace = var.namespace
   version = var.wp_version
   
   set {
     name = "image.tag"
-    value = "5.4.1"
+    value = var.wp_version
   }
   set {
     name = "wordpressSkipInstall"
@@ -35,7 +35,7 @@ resource "helm_release" "wp-install" {
   }
   set {
     name = "persistence.accessMode"
-    value = "ReadWriteMany"
+    value = var.storage_mode
   }
   set {
     name = "mariadb.enabled"
@@ -43,7 +43,7 @@ resource "helm_release" "wp-install" {
   }
   set {
     name = "externalDatabase.host"
-    value = "${helm_release.sql-wordpress.name}-${helm_release.sql-wordpress.chart}.${kubernetes_namespace.db.metadata.0.name}"
+    value = var.db_uri
   }
   set {
     name = "externalDatabase.port"
@@ -68,13 +68,13 @@ resource "helm_release" "wp-install" {
 }
 
 resource "mysql_database" "this_install" {
-  name = "wp_${var.customer_name}"
+  name = "wp_${var.name}"
 }
 
 resource "mysql_user" "this_install" {
-  user = "wp_${var.customer_name}"
-  host = "10.42.%"
-  plaintext_password = random_password.starmanswp.result
+  user = "wp_${var.name}"
+  host = var.db_connect_range
+  plaintext_password = random_password.this_install.result
 }
 
 resource "mysql_grant" "this_install" {
@@ -84,10 +84,15 @@ resource "mysql_grant" "this_install" {
   privileges = [ "ALL PRIVILEGES" ]
 }
 
-resource "random_password" "starmanswp" {
+resource "random_password" "this_install" {
   keepers = {
     database = mysql_database.this_install.name
   }
   length = 16
+}
+
+data "helm_repository" "bitnami" {
+  name = "bitnami"
+  url = "https://charts.bitnami.com/bitnami"
 }
 
