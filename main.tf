@@ -101,6 +101,7 @@ resource "random_password" "this_install" {
     database = mysql_database.this_install.name
   }
   length = 16
+  special = "false"
 }
 
 data "helm_repository" "bitnami" {
