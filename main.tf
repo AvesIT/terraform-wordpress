@@ -25,16 +25,6 @@ resource "helm_release" "wp-install" {
     name = "ingress.hostname"
     value = var.main_url
   }
-  for_each = toset(var.extraURL)
-
-  set {
-    name = "ingress.extraHosts.name"
-    value = each.value
-  }
-  set {
-    name = "ingress.extraTLS.hosts"
-    value = each.value
-  }
 
   set {
     name = "ingress.certManager"
