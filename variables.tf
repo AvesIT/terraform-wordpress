@@ -63,3 +63,15 @@ variable "cluster_issuer" {
   description = "Certmanager cluster-issuer for this ingress"
   default = "letsencrypt-staging"
 }
+
+variable "extraHosts" {
+  type = map
+  description = "Extra hosts to be added to the ingress"
+  default = {}
+}
+
+variable "extraTLS" {
+  type = map
+  description = "Extra TLS resources for extra hosts"
+  default = {}
+}

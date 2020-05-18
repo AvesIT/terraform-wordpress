@@ -26,6 +26,14 @@ resource "helm_release" "wp-install" {
     value = var.main_url
   }
   set {
+    name = "ingress.extraHosts"
+    value = var.extraURL
+  }
+  set {
+    name = "ingress.extraTLS"
+    value = var.extraTLS
+  }
+  set {
     name = "ingress.certManager"
     value = "true"
   }
@@ -80,6 +88,10 @@ resource "helm_release" "wp-install" {
   set {
     name = "healthcheckHttps"
     value = "true"
+  }
+  set {
+    name = "wordpressScheme"
+    value = "https"
   }
 }
 
