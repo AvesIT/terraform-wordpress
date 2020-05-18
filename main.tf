@@ -77,6 +77,10 @@ resource "helm_release" "wp-install" {
     name = "allowEmptyPassword"
     value = "false"
   }
+  set {
+    name = "healthcheckHttps"
+    value = "true"
+  }
 }
 
 resource "mysql_database" "this_install" {
