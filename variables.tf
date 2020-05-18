@@ -67,5 +67,5 @@ variable "cluster_issuer" {
 variable "extraURL" {
   type = list(string)
   description = "Extra hosts to be added to the ingress"
-  default = ""
+  default = []
 }
