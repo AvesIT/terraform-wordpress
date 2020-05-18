@@ -64,7 +64,7 @@ variable "cluster_issuer" {
   default = "letsencrypt-staging"
 }
 
-variable "extraHosts" {
+variable "extraURL" {
   type = map
   description = "Extra hosts to be added to the ingress"
   default = {}
