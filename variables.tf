@@ -65,13 +65,13 @@ variable "cluster_issuer" {
 }
 
 variable "extraURL" {
-  type = map
+  type = string
   description = "Extra hosts to be added to the ingress"
   default = {}
 }
 
 variable "extraTLS" {
-  type = map
+  type = string
   description = "Extra TLS resources for extra hosts"
   default = {}
 }
