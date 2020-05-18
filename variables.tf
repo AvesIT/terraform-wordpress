@@ -67,11 +67,11 @@ variable "cluster_issuer" {
 variable "extraURL" {
   type = string
   description = "Extra hosts to be added to the ingress"
-  default = {}
+  default = ""
 }
 
 variable "extraTLS" {
   type = string
   description = "Extra TLS resources for extra hosts"
-  default = {}
+  default = ""
 }
