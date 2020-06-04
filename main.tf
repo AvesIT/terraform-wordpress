@@ -86,6 +86,10 @@ resource "helm_release" "wp-install" {
     name = "wordpressScheme"
     value = "https"
   }
+  set {
+    name = "replicaCount"
+    value = var.replicas
+  }
 }
 
 resource "mysql_database" "this_install" {

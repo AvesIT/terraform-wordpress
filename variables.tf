@@ -69,3 +69,9 @@ variable "extraURL" {
   description = "Extra hosts to be added to the ingress"
   default = []
 }
+
+variable "replicas" {
+  type = number
+  description = "Number of replica pods desired"
+  default = 1
+}
