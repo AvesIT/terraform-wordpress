@@ -6,6 +6,14 @@ resource "helm_release" "wp-install" {
   version = var.chart_version 
   
   set {
+    name = "image.pullPolicy"
+    value = "Always"
+  }
+  set {
+    name = "image.debug"
+    value = var.debug
+  }
+  set {
     name = "image.tag"
     value = var.wp_version
   }

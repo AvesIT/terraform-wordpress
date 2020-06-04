@@ -75,3 +75,10 @@ variable "replicas" {
   description = "Number of replica pods desired"
   default = 1
 }
+
+variable "debug" {
+  type = bool
+  description = "Enable debug for the container"
+  default = false
+}
+ 
