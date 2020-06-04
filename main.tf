@@ -88,7 +88,7 @@ resource "helm_release" "wp-install" {
   }
   set {
     name = "healthcheckHttps"
-    value = "false"
+    value = "true"
   }
   set {
     name = "wordpressScheme"
