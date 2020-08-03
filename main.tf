@@ -43,7 +43,7 @@ resource "helm_release" "wp-install" {
     value = var.cluster_issuer
   }
   set {
-    name = "ingress.annotations. cert-manager\\.io\\/cluster-issuer"
+    name = "ingress.annotations.cert-manager\\.io\\/cluster-issuer"
     value = var.cluster_issuer
   }
   set {
