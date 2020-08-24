@@ -1,11 +1,21 @@
 terraform {
-  required_version = ">= 0.12"
+  required_version = ">= 0.13"
 
   required_providers {
-    mysql      = "~> 1.9"
-    kubernetes = "~> 1.10"
-    random     = "~> 2.2"
-    helm       = "~> 1.1"
+    mysql = {
+      source = "terraform-providers/mysql"
+      version = "~> 1.9"
+    kubernetes = {
+      source = "hashicorp/kubernetes"
+      version = "~> 1.10"
+    }
+    random = {
+      source = "hashicorp/random"
+      version = "~> 2.2"
+    }
+    helm = {
+      source = "hashicorp/helm"
+      version = "~> 1.1"
+    }
   }
-
 }
