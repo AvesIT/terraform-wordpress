@@ -4,19 +4,19 @@ terraform {
   required_providers {
     mysql = {
       source = "terraform-providers/mysql"
-      version = "~> 1.9"
+      version = "~> 1.9.0"
     }
     kubernetes = {
       source = "hashicorp/kubernetes"
-      version = "~> 1.10"
+      version = "~> 1.10.0"
     }
     random = {
       source = "hashicorp/random"
-      version = "~> 2.2"
+      version = "~> 2.2.0"
     }
     helm = {
       source = "hashicorp/helm"
-      version = "~> 1.1"
+      version = "~> 1.1.0"
     }
   }
 }
