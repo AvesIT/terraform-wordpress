@@ -1,84 +1,90 @@
 variable "name" {
-  type = string
+  type        = string
   description = "Deployment name"
-  default = "example"
+  default     = "example"
 }
 
 variable "namespace" {
-  type = string
+  type        = string
   description = "Deployment namespace"
-  default = "example_namespace"
+  default     = "example_namespace"
 }
 
 variable "chart_version" {
-  type = string
+  type        = string
   description = "Chart version"
-  default = ""
+  default     = ""
 }
 
 variable "wp_version" {
-  type = string
+  type        = string
   description = "Version of WordPress to run (image tag)"
-  default = "latest"
+  default     = "latest"
+}
+
+variable "image_repository" {
+  type        = string
+  description = "Repository to get image from"
+  default     = "bitnami/wordpress"
 }
 
 variable "main_url" {
-  type = string
+  type        = string
   description = "Main hostname/url for deployment"
-  default = "example.com"
+  default     = "example.com"
 }
 
 variable "storage_size" {
-  type = string
+  type        = string
   description = "Size of storage needed for the website"
-  default = "2Gi"
+  default     = "2Gi"
 }
 
 variable "storage_class" {
-  type = string
+  type        = string
   description = "Kubernetes Storage class used for permanent storage"
-  default = "nfs"
+  default     = "nfs"
 }
 
 variable "storage_mode" {
-  type = string
+  type        = string
   description = "Mount mode for storage"
-  default = "ReadWriteMany"
+  default     = "ReadWriteMany"
 }
 
 variable "db_uri" {
-  type = string
+  type        = string
   description = "Hostname:port to connect to underlying database"
-  default = "mariadb"
+  default     = "mariadb"
 }
 
 variable "db_connect_range" {
-  type = string
+  type        = string
   description = "IP address (in MySQL format) that connections are tolerated from. For instance, a node ip range, service range or pod range"
-  default = "10.42.%"
+  default     = "10.42.%"
 }
 
 variable "cluster_issuer" {
-  type =  string
+  type        = string
   description = "Certmanager cluster-issuer for this ingress"
-  default = "letsencrypt-staging"
+  default     = "letsencrypt-staging"
 }
 
 variable "extraURL" {
-  type = list(string)
+  type        = list(string)
   description = "Extra hosts to be added to the ingress"
-  default = []
+  default     = []
 }
 
 variable "replicas" {
-  type = number
+  type        = number
   description = "Number of replica pods desired"
-  default = 1
+  default     = 1
 }
 
 variable "debug" {
-  type = bool
+  type        = bool
   description = "Enable debug for the container"
-  default = false
+  default     = false
 }
- 
+

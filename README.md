@@ -7,23 +7,48 @@ Terraform Module to deploy a wordpress site in a Kubernetes Cluster.
 See `examples/example.tf` for example usage of the module.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| terraform | >= 0.13 |
+| helm | ~> 1.3.0 |
+| kubernetes | ~> 1.13.0 |
+| mysql | ~> 1.9.0 |
+| random | ~> 2.2.0 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| helm | ~> 1.3.0 |
+| mysql | ~> 1.9.0 |
+| random | ~> 2.2.0 |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| name | Name of customer | string | `example` | no |
-| namespace | Namespace to put this in | string | `example` | no |
-| wp_version | Version of wordpress to deploy | string | `latest` | no |
-| main_url | URL to expose via an ingress | string | `example.org` | no |
-| storage_size | Size for permanent storage | string | `2Gi` | no |
-| storage_class | Storage Class used for above storage | string | `nfs` | no
-| storage_mode | Mount mode for above storage | string | `ReadWriteMany` | no
-| db_uri | Connect string for database | string | `mariadb` | no
-| db_connect_range | Allowed IP range of pods | string | `10.42.%` | no
+|------|-------------|------|---------|:--------:|
+| chart\_version | Chart version | `string` | `""` | no |
+| cluster\_issuer | Certmanager cluster-issuer for this ingress | `string` | `"letsencrypt-staging"` | no |
+| db\_connect\_range | IP address (in MySQL format) that connections are tolerated from. For instance, a node ip range, service range or pod range | `string` | `"10.42.%"` | no |
+| db\_uri | Hostname:port to connect to underlying database | `string` | `"mariadb"` | no |
+| debug | Enable debug for the container | `bool` | `false` | no |
+| extraURL | Extra hosts to be added to the ingress | `list(string)` | `[]` | no |
+| image\_repository | Repository to get image from | `string` | `"bitnami/wordpress"` | no |
+| main\_url | Main hostname/url for deployment | `string` | `"example.com"` | no |
+| name | Deployment name | `string` | `"example"` | no |
+| namespace | Deployment namespace | `string` | `"example_namespace"` | no |
+| replicas | Number of replica pods desired | `number` | `1` | no |
+| storage\_class | Kubernetes Storage class used for permanent storage | `string` | `"nfs"` | no |
+| storage\_mode | Mount mode for storage | `string` | `"ReadWriteMany"` | no |
+| storage\_size | Size of storage needed for the website | `string` | `"2Gi"` | no |
+| wp\_version | Version of WordPress to run (image tag) | `string` | `"latest"` | no |
 
 ## Outputs
 
-None at current
+No output.
+
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Contributing
