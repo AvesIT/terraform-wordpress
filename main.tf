@@ -22,6 +22,10 @@ resource "helm_release" "wp" {
     value = var.image_repository
   }
   set {
+    name  = "image.registry"
+    value = var.image_registry
+  }
+  set {
     name  = "wordpressSkipInstall"
     value = "true"
   }

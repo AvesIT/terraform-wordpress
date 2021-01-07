@@ -35,6 +35,7 @@ See `examples/example.tf` for example usage of the module.
 | db\_uri | Hostname:port to connect to underlying database | `string` | `"mariadb"` | no |
 | debug | Enable debug for the container | `bool` | `false` | no |
 | extraURL | Extra hosts to be added to the ingress | `list(string)` | `[]` | no |
+| image\_registry | Container registry to get image from | `string` | `"docker.io"` | no |
 | image\_repository | Repository to get image from | `string` | `"bitnami/wordpress"` | no |
 | main\_url | Main hostname/url for deployment | `string` | `"example.com"` | no |
 | name | Deployment name | `string` | `"example"` | no |

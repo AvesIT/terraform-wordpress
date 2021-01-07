@@ -28,6 +28,12 @@ variable "image_repository" {
   default     = "bitnami/wordpress"
 }
 
+variable "image_registry" {
+  type        = string
+  description = "Container registry to get image from"
+  default     = "docker.io"
+}
+
 variable "main_url" {
   type        = string
   description = "Main hostname/url for deployment"
